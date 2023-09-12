@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Pricing Component</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins&display=swap');
+
+
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+      background-color: hsl(240, 78%, 98%);
+
+    }
+
+    body::before {
+      content: '';
+      background-image: url(images/bg-top.svg);
+      background-repeat: no-repeat;
+      background-position: top right;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+
+    body::after {
+      content: ' ';
+      background-image: url(images/bg-bottom.svg);
+      background-repeat: no-repeat;
+      background-position: bottom left;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    #annualSwitch {
+      margin-right: 20px;
+    }
+
+    .custom {
+      background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 64%, 74%));
+      border-radius: 10px;
+      color: white !important;
+    }
+
+    ul li {
+      list-style: none;
+    }
+
+
+    .single-pricing {
+      border: 1px solid white;
+      background-color: white;
+      border-radius: 10px;
+    }
+
+    .single-deal li {
+      border-bottom: 1px solid lightgrey;
+      border-top: 1px solid lightgray;
+      padding: 10px;
+      width: 90%;
+    }
+
+    .btn {
+      width: 80%;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    .pricing-area {
+      padding: 25px;
+    }
+
+    #pro {
+      padding: 50px;
+    }
+
+    .equal {
+      margin-top: 25px;
+      padding: 20px;
+    }
+
+    .deal-type {
+      color: (232, 13%, 33%);
+    }
+
+    .form-check-label {
+      color: hsl(234, 14%, 74%)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="mb-3 mt-3">Our Pricing</h2>
+
+    <div class="next">
+      <div class="d-flex justify-content-center  ">
+        <label class="form-check-label me-4 text-body-tertiary text-muted" for="monthlySwitch">Annually</label>
+        <div class="form-check form-switch">
+          <input class="form-check-input custom" type="checkbox" id="annualSwitch">
+          <label class="form-check-label text-body-tertiary text-muted" for="annualSwitch">Monthly</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pricing-area">
+    <div class="container mt-4 my-5">
+      <div class="row">
+        <div class="col-md-4 p-0 m-0">
+          <div class="single-pricing equal">
+            <div class="deal-type mb-2">Basic</div>
+            <div class="deal-amount">
+              <div class="price">
+                <h1 class="money mb-4" id="basic">&dollar;199.99</h1>
+              </div>
+            </div>
+            <ul class="single-deal">
+              <li>500 GB Storage</li>
+              <li>2 Users Allowed</li>
+              <li>Send up to 3 GB</li>
+            </ul>
+            <a class="btn btn-light mt-3 custom">LEARN MORE</a>
+          </div>
+        </div>
+
+        <div class="col-md-4 p-0 m-0 custom">
+          <div class="custom">
+            <div class="single-pricings" id="pro">
+              <div class="deal-type mb-2">Professional</div>
+              <div class="deal-amount ">
+                <div class="price">
+                  <h1 class="money mb-4" id="professional">&dollar;249.99</h1>
+                </div>
+              </div>
+              <ul class="single-deal">
+                <li>1 TB Storage</li>
+                <li>5 User Allowed</li>
+                <li>Send up to 10 GB</li>
+
+              </ul>
+              <a class="btn btn-light mt-3 ">LEARN MORE</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 p-0 m-0">
+          <div class="single-pricing equal">
+            <div class="deal-type mb-2">Master</div>
+            <div class="deal-amount">
+              <div class="price">
+                <h1 class="money mb-4" id="master"> &dollar;399.99</h1>
+              </div>
+
+            </div>
+            <ul class="single-deal">
+              <li>2 TB Storage</li>
+              <li>10 Users Allowed</li>
+              <li>Send up to 20 GB</li>
+
+            </ul>
+            <a class="btn btn-light mt-3 custom">LEARN MORE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    var switchBtn = document.getElementById("annualSwitch");
+    var basic = document.getElementById("basic");
+    var professional = document.getElementById("professional");
+    var master = document.getElementById("master");
+
+    switchBtn.addEventListener("change", function () {
+      if (this.checked) {
+        // When the toggle is checked (annually)
+        basic.innerText = "$19.99";
+        professional.innerText = "$24.99";
+        master.innerText = "$39.99";
+      } else {
+        // When the toggle is unchecked (monthly)
+        basic.innerText = "$199.99";
+        professional.innerText = "$249.99";
+        master.innerText = "$399.99";
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
